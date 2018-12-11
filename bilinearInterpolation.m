@@ -21,7 +21,7 @@ classdef bilinearInterpolation
     
     methods
         % Constructor for reading input image matrix
-        function obj = BilinearInterpolation(imageMatrix) 
+        function obj = bilinearInterpolation(imageMatrix) 
             obj.colorImageMat = imageMatrix;
             matSize = size(obj.colorImageMat);
             obj.initialRow = matSize(1);
@@ -44,7 +44,8 @@ classdef bilinearInterpolation
             end
             
             for indexColor = 1:3
-                obj.interpolatedImage(:,:,indexColor) = conv2(obj.upSampleMat(:,:,indexColor) , obj.filterMaskMat, 'same');
+                obj.interpolatedImage(:,:,indexColor) = conv2D(obj.upSampleMat(:,:,indexColor) , obj.filterMaskMat);
+                %conv2(obj.upSampleMat(:,:,indexColor) , obj.filterMaskMat, 'same');
             end
             
         end

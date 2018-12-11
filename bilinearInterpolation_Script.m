@@ -5,7 +5,8 @@
 % Date          : N/A
 % Version       : 1.0
 % Description   : This script is to test the bilinearInterpolation class
+clear all; clc;
 
-imgObj = BilinearInterpolation(imread('exampleImage.jpg'));
+imgObj = bilinearInterpolation(imread('sampleImage.png'));
 imgObj = imgObj.enlargeImage;
 imgObj.saveResult;
